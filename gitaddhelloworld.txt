@@ -1,1 +1,3 @@
 Hello, I am testing the git add function
+
+This is a new line to track changes
