@@ -14,6 +14,14 @@ public class InputReader implements InputReaderIf {
 
         printer.print(message);
         String input = scanner.nextLine();
+
+        return input;
+    }
+
+    @Override
+    public Integer readInt(String message) {
+        printer.print(message);
+        Integer input = scanner.nextInt();
         scanner.close();
         return input;
     }
