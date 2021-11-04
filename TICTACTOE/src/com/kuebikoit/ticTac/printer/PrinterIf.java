@@ -1,4 +1,4 @@
-package com.kuebikoit.ticTac.pinter;
+package com.kuebikoit.ticTac.printer;
 
 public interface PrinterIf {
 

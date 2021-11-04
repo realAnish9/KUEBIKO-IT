@@ -1,6 +1,6 @@
 package com.kuebikoit.ticTac.reader;
 
-import com.kuebikoit.ticTac.pinter.Printer;
+import com.kuebikoit.ticTac.printer.Printer;
 
 import java.util.Scanner;
 
