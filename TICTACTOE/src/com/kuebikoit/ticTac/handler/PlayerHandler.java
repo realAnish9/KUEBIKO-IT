@@ -1,6 +1,7 @@
 package com.kuebikoit.ticTac.handler;
 
 import com.kuebikoit.ticTac.constants.TicTacToeConstants;
+import com.kuebikoit.ticTac.models.RowCol;
 import com.kuebikoit.ticTac.players.UserPlayer;
 
 public class PlayerHandler implements PlayerHandlerIf {
@@ -11,11 +12,12 @@ public class PlayerHandler implements PlayerHandlerIf {
     }
 
     @Override
-    public void move(UserPlayer userPlayer, int row, int col) {
-        boolean isValid = validate(row, col);
-        if(isValid) {
+    public void move(UserPlayer userPlayer, RowCol rowCol) {
+      //  boolean isValid = validate(rowCol.getRow(), rowCol.getCol());
+        // if(isValid)
+        {
             TicTacToeConstants
-                    .defaultArray[row][col] = userPlayer.getSymbol();
+                    .defaultArray[rowCol.getRow()][rowCol.getCol()] = userPlayer.getSymbol();
         }
 
     }
