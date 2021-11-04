@@ -17,11 +17,11 @@ public class Printer implements PrinterIf {
         // Check null pointer'
         if(array != null) {
 
-            for(int row = 0; row < array.length; row ++ ) {
+            for (String[] strings : array) {
 
-                for(int col = 0 ; col < array[row].length; col++) {
+                for (String string : strings) {
                     System.out.print(TicTacToeConstants.DOUBLE_TAB);
-                    System.out.print(array[row][col]);
+                    System.out.print(string);
                 }
 
                 System.out.print(TicTacToeConstants.DOUBLE_NEW_LINE);

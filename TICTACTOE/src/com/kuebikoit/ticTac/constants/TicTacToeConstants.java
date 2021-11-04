@@ -17,5 +17,6 @@ public class TicTacToeConstants {
             {"*", "*", "*"},
             {"*", "*", "*"}
     };
+    public final static int ARRAY_LENGTH=defaultArray.length;
 
 }
