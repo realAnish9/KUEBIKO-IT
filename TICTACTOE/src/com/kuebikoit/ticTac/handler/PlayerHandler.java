@@ -26,7 +26,7 @@ public class PlayerHandler implements PlayerHandlerIf {
 
     }
 
-    private boolean validate(int row, int col){
+    public boolean validate(int row, int col){
         System.out.println(row+" "+col);
         return row>=0 && row<ARRAY_LENGTH && col<ARRAY_LENGTH && col>=0 && Objects.equals(TicTacToeConstants.defaultArray[row][col], "*");
     }

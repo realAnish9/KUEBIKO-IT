@@ -8,6 +8,10 @@ import com.kuebikoit.ticTac.players.UserPlayer;
 import com.kuebikoit.ticTac.reader.InputReader;
 import com.kuebikoit.ticTac.util.Mapper;
 
+import java.util.Random;
+
+import static com.kuebikoit.ticTac.constants.TicTacToeConstants.ARRAY_LENGTH;
+
 public class Main {
 
     private UserPlayer player1 = new UserPlayer();
@@ -22,8 +26,9 @@ public class Main {
         Main main = new Main();
         main.initializeGame();
         main.initializePlayers();
-        main.turnPromter();
+        main.turnPrompter();
         main.getMove();
+        main.initializeAI();
 
 //         LOOP [
 //             Once the player moves, change turn
@@ -36,6 +41,19 @@ public class Main {
 
 
 
+    }
+
+    public void aiMove(){
+        Random rand=new Random();
+        boolean rightValue=false;
+        int row=-1;
+        int col=-1;
+        while(!rightValue){
+           row=rand.nextInt(ARRAY_LENGTH);
+           int col=rand.nextInt(ARRAY_LENGTH);
+           rightValue=playerHandler.validate(row,col);
+        }
+        playerHandler.move(getTurn(),);
     }
 
     public void getMove() {
@@ -56,7 +74,7 @@ public class Main {
         }
     }
 
-    public void turnPromter() {
+    public void turnPrompter() {
 
         printer.print(TicTacToeConstants.playerTurnPrompt + getTurn().getName());
     }
@@ -66,9 +84,11 @@ public class Main {
         printer.print(TicTacToeConstants.defaultArray);
     }
 
-    public void intitializeAI() {
+    public void initializeAI() {
         aiPlayer.setName("Computer");
         aiPlayer.setSymbol("O");
+        aiPlayer.setTurn(true);
+        aiPlayer.setSymbol("0");
     }
 
     public void initializePlayers(){
@@ -76,7 +96,7 @@ public class Main {
         player1.setName(playerName);
         player1.setTurn(true);
         player1.setSymbol("X");
-        printer.print(player1.getName());
+        //printer.print(player1.getName());
     }
 
 }
