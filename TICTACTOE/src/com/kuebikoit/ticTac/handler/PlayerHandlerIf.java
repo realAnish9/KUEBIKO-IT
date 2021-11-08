@@ -6,5 +6,5 @@ import com.kuebikoit.ticTac.players.UserPlayer;
 public interface PlayerHandlerIf {
 
     boolean isTurn(UserPlayer userPlayer);
-    void move(UserPlayer userPlayer, RowCol rowCol);
+    int move(UserPlayer userPlayer, RowCol rowCol);
 }

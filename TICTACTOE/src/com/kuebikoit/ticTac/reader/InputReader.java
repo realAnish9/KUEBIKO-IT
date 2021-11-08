@@ -13,17 +13,15 @@ public class InputReader implements InputReaderIf {
     public String read(String message) {
 
         printer.print(message);
-        String input = scanner.nextLine();
 
-        return input;
+        return scanner.nextLine();
     }
 
     @Override
     public Integer readInt(String message) {
         printer.print(message);
-        Integer input = scanner.nextInt();
-        scanner.close();
-        return input;
+        //scanner.close();
+        return scanner.nextInt();
     }
 
 

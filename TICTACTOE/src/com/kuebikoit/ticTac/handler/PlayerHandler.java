@@ -16,18 +16,22 @@ public class PlayerHandler implements PlayerHandlerIf {
     }
 
     @Override
-    public void move(UserPlayer userPlayer, RowCol rowCol) {
+    public int move(UserPlayer userPlayer, RowCol rowCol) {
       boolean isValid = validate(rowCol.getRow(), rowCol.getCol());
         if(isValid)
         {
             TicTacToeConstants
                     .defaultArray[rowCol.getRow()][rowCol.getCol()] = userPlayer.getSymbol();
+            return 1;
+        }
+        else {
+            System.out.println("Invalid Input! Enter again: ");
+            return -1;
         }
 
     }
 
     public boolean validate(int row, int col){
-        System.out.println(row+" "+col);
         return row>=0 && row<ARRAY_LENGTH && col<ARRAY_LENGTH && col>=0 && Objects.equals(TicTacToeConstants.defaultArray[row][col], "*");
     }
 }
