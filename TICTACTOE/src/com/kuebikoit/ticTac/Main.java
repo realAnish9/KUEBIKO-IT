@@ -7,6 +7,7 @@ import com.kuebikoit.ticTac.pinter.Printer;
 import com.kuebikoit.ticTac.players.UserPlayer;
 import com.kuebikoit.ticTac.reader.InputReader;
 import com.kuebikoit.ticTac.util.Mapper;
+import java.util.Random;
 
 public class Main {
 
@@ -22,29 +23,79 @@ public class Main {
         Main main = new Main();
         main.initializeGame();
         main.initializePlayers();
-        main.turnPromter();
-        main.getMove();
+
 
 //         LOOP [
 //             Once the player moves, change turn
 //             random emppty value
 //        ]
+        boolean a=true;
+        while(a)
+        {
 
+            main.turnPromter();
+            main.getMove();
+            main.intitializeAI();
+            main.turnPromter();
+            main.computerMove();
+            a=main.winChecker();
 
-
-
+        }
+        main.whoWon();
 
 
 
     }
 
+    public boolean winChecker() {
+        String [][]array;
+        array = TicTacToeConstants.defaultArray;
+        boolean b=true;
+        for(int i=0;i<3;i++)
+            {
+                for(int j=0;j<3;j++)
+                {
+                    if((array[i][0].equals("X") &&array[i][1].equals("X")&&array[i][2].equals("X"))||(array[i][0].equals("O")&&array[i][1].equals("O")&&array[i][2].equals("O"))) {
+                        b = false;
+                    }
+                    if((array[0][j].equals("X")&&array[1][j].equals("X")&&array[2][j].equals("X"))||(array[0][j].equals("O")&&array[1][j].equals("O")&&array[2][j].equals("O")))
+                    {
+                        b=false;
+                    }
+                    if((array[0][0].equals("X")&&array[1][1].equals("X")&&array[2][2].equals("X"))||(array[0][0].equals("O")&&array[1][1].equals("O")&&array[2][2].equals("O"))) {
+                        b = false;
+                    }
+                    if((array[2][0].equals("X")&&array[1][1].equals("X")&&array[0][2].equals("X"))||(array[2][0].equals("O")&&array[1][1].equals("O")&&array[0][2].equals("O"))){
+                        b=false;
+                    }
+
+                }
+
+            }
+        return b;
+
+        }
+
+
+
     public void getMove() {
 
+        RowCol rowCol;
         Integer playerMovePosition = inputReader.readInt(TicTacToeConstants.playerMoveMessagePrompt);
-        RowCol rowCol = Mapper.mapNumberToRowCol(playerMovePosition);
+        rowCol = Mapper.mapNumberToRowCol(playerMovePosition);
+        while(!playerHandler.validate(rowCol.getRow(), rowCol.getCol())){
+            playerMovePosition = inputReader.readInt(TicTacToeConstants.playerMoveMessagePrompt);
+            rowCol = Mapper.mapNumberToRowCol(playerMovePosition);
+        }
         playerHandler.move(getTurn(), rowCol);
         initializeGame();
 
+    }
+    public void computerMove(){
+        RowCol rowCol=Mapper.mapNumberToRowCol(((int)(Math.random()*9+1)));
+        playerHandler.move(getTurn(),rowCol);
+        initializeGame();
+        player1.setTurn(true);
     }
 
     public UserPlayer getTurn() {
@@ -60,6 +111,9 @@ public class Main {
 
         printer.print(TicTacToeConstants.playerTurnPrompt + getTurn().getName());
     }
+    public void whoWon(){
+        printer.print(TicTacToeConstants.winner+getTurn().getName());
+    }
 
     public void initializeGame(){
 
@@ -67,6 +121,7 @@ public class Main {
     }
 
     public void intitializeAI() {
+        player1.setTurn(false);
         aiPlayer.setName("Computer");
         aiPlayer.setSymbol("O");
     }

@@ -22,7 +22,7 @@ public class InputReader implements InputReaderIf {
     public Integer readInt(String message) {
         printer.print(message);
         Integer input = scanner.nextInt();
-        scanner.close();
+        //scanner.close();
         return input;
     }
 
