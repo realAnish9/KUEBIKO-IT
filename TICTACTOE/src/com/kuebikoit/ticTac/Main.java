@@ -3,8 +3,8 @@ package com.kuebikoit.ticTac;
 import com.kuebikoit.ticTac.constants.TicTacToeConstants;
 import com.kuebikoit.ticTac.handler.PlayerHandler;
 import com.kuebikoit.ticTac.models.RowCol;
-import com.kuebikoit.ticTac.printer.Printer;
 import com.kuebikoit.ticTac.players.UserPlayer;
+import com.kuebikoit.ticTac.printer.Printer;
 import com.kuebikoit.ticTac.reader.InputReader;
 import com.kuebikoit.ticTac.util.Mapper;
 
