@@ -16,5 +16,7 @@ public class PlayerDao {
         dataSource.put(player.getId(), player);
         return dataSource.get(player.getId());
     }
-
+    public Player getPlayerById(String id){
+        return dataSource.get(id);
+    }
 }
