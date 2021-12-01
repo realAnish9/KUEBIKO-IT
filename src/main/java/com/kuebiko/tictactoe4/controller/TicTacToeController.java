@@ -19,7 +19,8 @@ public class TicTacToeController {
     @RequestMapping ("/create")
     public Player createNewPlayer(@RequestBody Player paylood){
 
-       Player createdPlayer = tts.createNewPlayer(paylood);
+
+       Player createdPlayer = tts.updatePlayer(paylood);
         return createdPlayer;
 
     }
