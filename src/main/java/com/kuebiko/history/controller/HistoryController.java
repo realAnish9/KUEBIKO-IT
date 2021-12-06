@@ -7,11 +7,13 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
+
 @RequestMapping("/history")
 public class HistoryController {
 
     @Autowired
     HistoryService historyService;
+
 
     @GetMapping
     @RequestMapping("/get")
@@ -24,6 +26,7 @@ public class HistoryController {
     @RequestMapping("/save")
 
     public History saveHistory(@RequestBody History paylood){
+
         return historyService.saveHistory(paylood);
     }
 }

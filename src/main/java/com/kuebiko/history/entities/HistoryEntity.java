@@ -1,8 +1,18 @@
-package com.kuebiko.history.models;
+package com.kuebiko.history.entities;
 
-public class History {
+import javax.persistence.*;
+
+@Entity
+public class HistoryEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column
     private String playerId;
+
+    @Column
     private boolean winner;
 
     public Long getId() {
