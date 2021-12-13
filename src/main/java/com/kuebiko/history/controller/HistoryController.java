@@ -24,7 +24,6 @@ public class HistoryController {
 
     @PostMapping
     @RequestMapping("/save")
-
     public History saveHistory(@RequestBody History paylood){
 
         return historyService.saveHistory(paylood);

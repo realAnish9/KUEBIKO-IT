@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
-
 @Service
 public class HistoryService implements HistoryServiceIn{
 
@@ -20,6 +19,7 @@ public class HistoryService implements HistoryServiceIn{
     public History getHistory(String id) {
 
         return historyDao.getFromDatabase(id);
+
     }
 
     @Override
